@@ -3,7 +3,8 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    NavLink as Link
+    NavLink as Link,
+    HashRouter
 } from 'react-router-dom';
 import NewPerson from "./components/settings/people/new-person";
 import Sidebar from "./components/sidebar";
@@ -67,7 +68,7 @@ function ViewToolbarHost() {
 
 export default function App() {
     return (
-        <Router>
+        <HashRouter basename={process.env.PUBLIC_URL}>
             <>
                 <div className="view-switcher">
                     {views.map(({ id, name }) => (
@@ -98,6 +99,6 @@ export default function App() {
                     </Route> */}
                 </Switch>
             </>
-        </Router>
+        </HashRouter>
     )
 }

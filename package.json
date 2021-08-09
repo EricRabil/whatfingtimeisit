@@ -58,5 +58,6 @@
     "@types/react-router": "^5.1.16",
     "@types/react-router-dom": "^5.1.8",
     "sass": "^1.37.5"
-  }
+  },
+  "homepage": "https://time.crap.studio/"
 }
