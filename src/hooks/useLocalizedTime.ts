@@ -37,7 +37,7 @@ export interface TimeLocalization {
 }
 
 export function localizeTime(timezone: string, format = DateTime.TIME_SIMPLE): TimeLocalization {
-    const time = new DateTime().setZone(timezone);
+    const time = DateTime.fromObject({}).setZone(timezone);
 
     return {
         localizedAdjustedTime: time.toLocaleString(format),
