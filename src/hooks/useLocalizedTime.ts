@@ -20,7 +20,7 @@ export enum BeeperTimezone {
 export const BEEPER_TIMEZONE_BINDINGS: Record<BeeperTimezone, string> = {
     [BeeperTimezone.NAWest]: "America/Los_Angeles",
     [BeeperTimezone.NACentral]: "America/Mexico_City",
-    [BeeperTimezone.NAMountain]: "America/Phoenix",
+    [BeeperTimezone.NAMountain]: "America/Denver",
     [BeeperTimezone.NAEast]: "America/New_York",
     [BeeperTimezone.Europe]: "Europe/Zurich",
     [BeeperTimezone.India]: "Asia/Kolkata",
