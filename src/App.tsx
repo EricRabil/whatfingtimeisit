@@ -1,21 +1,13 @@
-import React from 'react';
+import classNames from 'classnames';
+import React, { useState } from 'react';
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    NavLink as Link,
-    HashRouter
+    HashRouter, NavLink as Link, Route, Switch
 } from 'react-router-dom';
-import NewPerson from "./components/settings/people/new-person";
 import Sidebar from "./components/sidebar";
-import "./scss/style.scss";
-
 import GridView, { GridViewToolbar } from "./components/views/grid";
 import TableView from "./components/views/table";
-import { PeopleContext } from './contexts/people-context';
 import { ColorCodingContext } from './contexts/color-coding-context';
-import { useState } from 'react';
-import classNames from 'classnames';
+import "./scss/style.scss";
 
 interface View {
     name: string;

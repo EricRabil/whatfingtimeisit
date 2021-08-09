@@ -1,11 +1,9 @@
-import { useQuery, useQueryClient } from "react-query";
 import { BeeperEmployee, getBeeperEmployees } from "@/util";
+import { useQuery } from "react-query";
 
 const defaultArray: BeeperEmployee[] = [];
 
 export default function useBeeperStaff(): BeeperEmployee[] {
-    const client = useQueryClient();
-
     const { data } = useQuery("staff", getBeeperEmployees, {
         placeholderData: defaultArray
     });

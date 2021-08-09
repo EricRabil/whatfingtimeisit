@@ -1,7 +1,6 @@
 import { ColorCodingContext } from "@/contexts/color-coding-context";
 import { LocalizedPerson, LocalizedTimeContext } from "@/contexts/localized-time-context";
 import { useSortedItems } from "@/hooks/useSortedItems";
-import classNames from "classnames";
 import React, { forwardRef, useContext } from "react";
 import OrderedList from "./hoc/OrderedList";
 

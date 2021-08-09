@@ -1,14 +1,11 @@
-import { ColorCodingContext, groupPeopleByTimezone, SWATCH_COLORS } from "@/contexts/color-coding-context";
+import OrderedList, { ExoticOrderedListRenderer } from "@/components/hoc/OrderedList";
+import { ColorCodingContext, groupPeopleByTimezone } from "@/contexts/color-coding-context";
 import { LocalizedPerson, LocalizedTimeContext } from "@/contexts/localized-time-context";
 import { useSortedItems } from "@/hooks/useSortedItems";
 import { rectSortingStrategy } from "@dnd-kit/sortable";
-import classnames from "classnames";
-import React, { forwardRef, useContext, useState } from "react";
-import { useCallback } from "react";
-import OrderedList, { ExoticOrderedListRenderer } from "@/components/hoc/OrderedList";
-import ColorSwatch from "@/components/shared/swatch";
-import { usePersistent } from "react-use-persistent";
 import classNames from "classnames";
+import React, { forwardRef, useCallback, useContext } from "react";
+import { usePersistent } from "react-use-persistent";
 
 const GridPerson: ExoticOrderedListRenderer<LocalizedPerson, { item: LocalizedPerson }, HTMLDivElement> = forwardRef(function({ item: person, ...props }, ref) {
     const { colorCodingStyles } = useContext(ColorCodingContext);
@@ -33,21 +30,6 @@ function useGridSettings() {
         columns: 4,
         fontScale: 3
     });
-}
-
-function hasAncestor(node: EventTarget, cb: (node: Node) => boolean): boolean {
-    if (!(node instanceof Node)) return false;
-
-    if (cb(node)) return true;
-
-    let next: Node | null = node.parentNode;
-
-    while (next !== null) {
-        if (cb(next)) return true;
-        next = next.parentNode;
-    }
-    
-    return false;
 }
 
 function ColumnsToolbarItem() {
@@ -121,7 +103,7 @@ function GroupByTimezoneItem() {
                   .sort((a1, a2) => a2.length - a1.length)
                   .flat()
         );
-    }, [ sortedPeople ]);
+    }, [ sortedPeople, setSortedPeople ]);
     
     return (
         <div className="switcher-item" onClick={() => groupPeople()}>

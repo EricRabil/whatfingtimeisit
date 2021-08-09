@@ -1,12 +1,8 @@
-import React, { createContext } from "react";
-import luxon, { DateTime } from "luxon";
-import { PeopleContext, Person } from "./people-context";
-import { TimeZonesByName } from "../const";
-import { TimeContext } from "./time";
-import { useContext } from "react";
-import { useMemo } from "react";
+import React, { createContext, useContext, useMemo } from "react";
 import { localizeTime, TimeLocalization } from "../hooks/useLocalizedTime";
 import { mapObject } from "../util";
+import { PeopleContext, Person } from "./people-context";
+import { TimeContext } from "./time";
 
 export interface LocalizedPerson extends Person, TimeLocalization {
 }
@@ -19,7 +15,7 @@ export function LocalizedPeopleContextProvider({ children }: { children: React.R
 
     const localizedPeople: Record<string, LocalizedPerson> = useMemo(() => mapObject(people, (id, person) => {
         return Object.assign({}, person, localizeTime(person.timezone));
-    }), [people, now]);
+    }), [people, now,]);
 
     return (
         <LocalizedTimeContext.Provider value={localizedPeople}>
