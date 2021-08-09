@@ -100,7 +100,7 @@ function GroupByTimezoneItem() {
         setSortedPeople(
             Object.values(groupPeopleByTimezone(sortedPeople))
                   .map(people => people.sort((p1, p2) => p1.name.localeCompare(p2.name)))
-                  .sort((a1, a2) => a2.length - a1.length)
+                  .sort((a1, a2) => a1[0].adjustedTime.toMillis() - a2[0].adjustedTime.toMillis())
                   .flat()
         );
     }, [ sortedPeople, setSortedPeople ]);
