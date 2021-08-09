@@ -1,0 +1,65 @@
+.view-switcher {
+    grid-column: 1 / 3;
+    padding: var(--view-inset);
+
+    display: flex;
+    flex-flow: row;
+
+    align-items: center;
+
+    border-bottom: 1px solid var(--text);
+
+    & .switcher-item {
+        @extend .button;
+
+        height: calc(var(--view-switcher-height) - (var(--view-inset) * 3));
+        width: max-content;
+        user-select: none;
+
+        & + .switcher-group {
+            margin-left: var(--view-inset);
+        }
+    }
+
+    & .switcher-group {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+
+        border: 1px solid currentColor;
+
+        .switcher-label {
+            padding: 0 var(--view-inset);
+        }
+
+        & .switcher-item {
+            border: 0;
+
+            border-right: 1px solid currentColor;
+            border-left: 1px solid currentColor;
+
+            &:last-child {
+                border-right: none;
+            }
+
+            &:first-child {
+                border-left: none;
+            }
+
+            & + .switcher-item {
+                border-left: none;
+            }
+
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+
+        &:not(:last-child) {
+            margin-right: var(--view-inset);
+        }
+    }
+
+    & > .switcher-spacer {
+        flex: 1;
+    }
+}

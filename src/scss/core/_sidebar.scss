@@ -1,0 +1,38 @@
+.sidebar {
+    border-right: 1px solid var(--text);
+    overflow-y: auto;
+    padding: var(--view-inset);
+
+    display: flex;
+    flex-flow: column;
+}
+
+.person {
+    @extend .button;
+
+    border: 1px solid currentColor;
+    color: var(--text);
+    min-height: 50px;
+    width: auto;
+
+    display: flex;
+    flex-flow: row;
+
+    background: var(--color-coding-bg);
+    color: var(--color-coding-text);
+
+    & > .person-spacer {
+        flex: 1;
+    }
+
+    & > .person-time {
+        display: flex;
+        flex-flow: column;
+        align-items: flex-end;
+    }
+
+    & + .person {
+        margin-left: 0 !important;
+        margin-top: var(--view-inset);
+    }
+}

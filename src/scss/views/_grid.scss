@@ -1,0 +1,60 @@
+@use "sass:color";
+
+:root {
+    --grid-person-height: 250px;
+}
+
+.grid-view {
+    display: grid;
+    grid-template-rows: repeat(auto-fill, var(--grid-person-height));
+
+    padding: var(--view-inset);
+
+    column-gap: var(--view-inset);
+    row-gap: var(--view-inset);
+
+    font-size: 18px;
+    --grid-person-height: 128px;
+
+    &[attr-font-scale="2"] {
+        font-size: 24px;
+        --grid-person-height: 192x;
+    }
+
+    &[attr-font-scale="3"] {
+        font-size: 36px;
+        --grid-person-height: 256px;
+    }
+
+    &[attr-font-scale="4"] {
+        font-size: 48px;
+        --grid-person-height: 384px;
+    }
+}
+
+.grid-person {
+    display: flex;
+    flex-flow: column;
+    
+    height: var(--grid-person-height);
+    background-color: var(--background);
+
+    align-items: center;
+    justify-content: center;
+    border: 1px solid currentColor;
+
+    position: relative;
+
+    cursor: pointer;
+
+    row-gap: var(--view-inset);
+
+    text-align: center;
+
+    background-color: var(--color-coding-bg);
+    color: var(--color-coding-text);
+
+    .grid-person-time {
+        font-size: 1.5em;
+    }
+}
